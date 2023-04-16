@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["es6", "dom"],
+      "types": ["cypress"],
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "module": "CommonJS",
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "strict": true,
+      "strictNullChecks": true
+    },
+    "include": ["cypress/**/*"],
+    "exclude": ["./dist"]
+  }
