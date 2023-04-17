@@ -1,5 +1,5 @@
 import { baseURL } from "cypress/utils/baseURL";
-import { formData } from "cypress/utils/formData";
+import { formData, formFields } from "cypress/utils/formData";
 
 describe('Edit and Delete a computer test', () => {
     
@@ -21,9 +21,8 @@ describe('Edit and Delete a computer test', () => {
     });
 
     it('Check if all inputs are editable and visible.', () => {
-        const inputs = ['#name', '#introduced', '#discontinued', '#company'];
-      
-        cy.get(inputs.join(',')).each(($input) => {
+
+        cy.get(formFields.join(',')).each(($input) => {
           expect($input).to.not.have.attr('readonly');
           expect($input).to.be.visible;
         });
@@ -32,11 +31,10 @@ describe('Edit and Delete a computer test', () => {
     });
 
     it('Should display an error message when entering an incorrect value in the "introduced" field', () => {
-        const [year, month, day] = formData.introduced.split('-');
-        const invalidDate = `${year}/${month}/${day}`;
       
         cy.get('#name').type(formData.computerName);
-        cy.get('#introduced').type(invalidDate);
+        cy.get('#introduced')
+            .type(`${formData.introduced.year}/${formData.introduced.month}/${formData.introduced.day}`);
       
         cy.get('.primary').click();
       
@@ -49,11 +47,10 @@ describe('Edit and Delete a computer test', () => {
     });
 
     it('Should display an error message when entering an incorrect value in the "discontinued" field', () => {
-        const [year, month, day] = formData.discontinued.split('-');
-        const invalidDate = `${year}/${month}/${day}`;
       
         cy.get('#name').type(formData.computerName);
-        cy.get('#discontinued').type(invalidDate);
+        cy.get('#discontinued')
+            .type(`${formData.discontinued.year}/${formData.discontinued.month}/${formData.discontinued.day}`);
       
         cy.get('.primary').click();
       

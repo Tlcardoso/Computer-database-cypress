@@ -24,10 +24,6 @@ describe('Computer Database Page Test', () => {
           .should('have.text', 'Add a computer');
     });
 
-    beforeEach(() => {
-        cy.visit(`${baseURL}/computers`);
-      });
-
     it('When the user clicks on the computer name, it should navigate to the edit form.', () => {
         cy.get('.computers tbody tr:first-child td:first-child a')
           .click()

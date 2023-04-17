@@ -3,10 +3,18 @@ export type searchDataProps = {
     incorrectSearch: string
 }
 
+export type DateObjectProps = {
+    day: string;
+    month: string;
+    year: string;
+}
+
+export type formFieldsProps = string[]
+
 export type formDataProps = {
     computerName: string;
-    introduced: string;
-    discontinued: string;
+    introduced: DateObjectProps;
+    discontinued: DateObjectProps;
     company: {
         label: string;
         value: number;
