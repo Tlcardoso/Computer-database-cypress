@@ -1,3 +1,4 @@
-export type formDataProps = {
-    inputSearch: string;
+export type searchDataProps = {
+    correctSearch: string;
+    incorrectSearch: string
 }
