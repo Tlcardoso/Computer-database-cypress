@@ -67,10 +67,7 @@ describe('Add a new computer Test', () => {
     });
 
     it('Check if it is adding a new computer successfully.', () => {
-        cy.get('#name').type(formData.computerName);
-        cy.get('#introduced').type(formData.introduced);
-        cy.get('#discontinued').type(formData.discontinued);
-        cy.get('#company').select(formData.company.label);
+        cy.fillForm(formData)
       
         cy.get('.primary').click().then(() => {
           cy.url().should('eq', `${baseURL}/computers`);
