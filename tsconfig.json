@@ -11,6 +11,6 @@
       "strict": true,
       "strictNullChecks": true
     },
-    "include": ["cypress/**/*"],
+    "include": ["cypress/**/*", "cypress/utils"],
     "exclude": ["./dist"]
   }
